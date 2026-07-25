@@ -4902,3 +4902,232 @@ PERFORMANCE
 box-sizing:border-box;
 
 }
+
+
+
+
+/*======================================================
+STYLE.CSS PART 3.4
+FINAL CINEMATIC FINISH
+======================================================*/
+
+
+/*==============================
+PREMIUM GRADIENT SKY
+==============================*/
+
+body{
+
+background:
+radial-gradient(circle at top,#4a148c 0%,#220033 35%,#12001d 70%,#05000d 100%);
+
+background-attachment:fixed;
+
+}
+
+
+
+/*==============================
+SOFT PURPLE OVERLAY
+==============================*/
+
+body::selection{
+
+background:#ff4fcf;
+
+color:#fff;
+
+}
+
+
+
+.skyGlow{
+
+position:fixed;
+
+left:50%;
+
+top:-120px;
+
+width:900px;
+
+height:900px;
+
+transform:translateX(-50%);
+
+border-radius:50%;
+
+background:
+
+radial-gradient(circle,
+
+rgba(160,80,255,.18),
+
+transparent 70%);
+
+filter:blur(80px);
+
+animation:skyGlowMove 12s ease-in-out infinite;
+
+pointer-events:none;
+
+z-index:-20;
+
+}
+
+
+
+@keyframes skyGlowMove{
+
+0%{
+
+transform:translateX(-50%) scale(1);
+
+}
+
+50%{
+
+transform:translateX(-50%) scale(1.15);
+
+}
+
+100%{
+
+transform:translateX(-50%) scale(1);
+
+}
+
+}
+
+
+
+/*==============================
+HEART RAIN BOOST
+==============================*/
+
+.heart{
+
+animation-timing-function:linear;
+
+filter:
+
+drop-shadow(0 0 12px rgba(255,60,180,.7));
+
+}
+
+
+
+/*==============================
+LETTER GLASS EFFECT
+==============================*/
+
+.letterBox{
+
+backdrop-filter:blur(25px);
+
+-webkit-backdrop-filter:blur(25px);
+
+background:
+
+rgba(255,255,255,.08);
+
+border:
+
+1px solid rgba(255,255,255,.12);
+
+box-shadow:
+
+0 0 50px rgba(255,0,170,.18);
+
+}
+
+
+
+/*==============================
+BUTTON PREMIUM
+==============================*/
+
+#touchButton{
+
+border:none;
+
+outline:none;
+
+cursor:pointer;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+transition:
+
+transform .35s ease,
+
+box-shadow .35s ease,
+
+filter .35s ease;
+
+}
+
+
+
+#touchButton:hover{
+
+filter:brightness(1.08);
+
+transform:translateY(-3px) scale(1.03);
+
+}
+
+
+
+/*==============================
+FINAL TITLE
+==============================*/
+
+.finalTitle{
+
+font-weight:800;
+
+letter-spacing:3px;
+
+text-align:center;
+
+text-shadow:
+
+0 0 20px rgba(255,255,255,.4),
+
+0 0 50px rgba(255,0,180,.5);
+
+}
+
+
+
+/*==============================
+SMOOTH PERFORMANCE
+==============================*/
+
+body,
+
+.page,
+
+.letterBox,
+
+#loveTree,
+
+.leaf,
+
+.crownLeaf{
+
+transform:translateZ(0);
+
+will-change:
+
+transform,
+
+opacity;
+
+}
+
+
+
