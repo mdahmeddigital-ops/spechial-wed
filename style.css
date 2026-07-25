@@ -5408,4 +5408,222 @@ box-shadow:
 
 
 
+/*======================================================
+STYLE.CSS PART 3.6
+FINAL ROMANTIC TREE SCENE
+======================================================*/
+
+
+/*==============================
+TREE HEART FALL EFFECT
+==============================*/
+
+.treeLeaf{
+
+position:absolute;
+
+pointer-events:none;
+
+filter:
+
+drop-shadow(0 0 12px #ff5cc8);
+
+}
+
+
+
+/*==============================
+ROMANTIC FLOAT TEXT
+==============================*/
+
+.romanticText{
+
+position:fixed;
+
+font-weight:700;
+
+color:#ffe5fa;
+
+font-size:18px;
+
+text-shadow:
+
+0 0 10px #ff4fcf,
+
+0 0 25px #ff4fcf;
+
+pointer-events:none;
+
+}
+
+
+
+/*==============================
+FINAL PAGE ATMOSPHERE
+==============================*/
+
+#page3{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+
+#page3::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+radial-gradient(
+
+circle at center,
+
+rgba(255,80,200,.12),
+
+transparent 55%
+
+);
+
+pointer-events:none;
+
+}
+
+
+
+/*==============================
+HEART RAIN PREMIUM
+==============================*/
+
+.heartPetal{
+
+font-family:
+
+"Segoe UI Emoji",
+
+sans-serif;
+
+animation-timing-function:
+
+linear;
+
+}
+
+
+
+.heartPetal:hover{
+
+filter:
+
+drop-shadow(
+
+0 0 25px #fff
+
+);
+
+}
+
+
+
+/*==============================
+FINAL BUTTON
+==============================*/
+
+#restart{
+
+border-radius:50px;
+
+padding:14px 35px;
+
+font-size:18px;
+
+background:
+
+linear-gradient(
+
+45deg,
+
+#ff2fae,
+
+#7b00ff
+
+);
+
+color:white;
+
+box-shadow:
+
+0 0 25px rgba(255,0,170,.5);
+
+transition:.4s;
+
+}
+
+
+
+#restart:hover{
+
+transform:
+
+scale(1.08);
+
+box-shadow:
+
+0 0 60px rgba(255,0,200,.8);
+
+}
+
+
+
+/*==============================
+MOBILE OPTIMIZATION
+==============================*/
+
+@media(max-width:600px){
+
+.moon{
+
+width:70px;
+
+height:70px;
+
+right:5%;
+
+top:5%;
+
+}
+
+
+.letterBox{
+
+width:90%;
+
+padding:20px;
+
+}
+
+
+.finalTitle{
+
+font-size:28px;
+
+}
+
+
+#touchButton{
+
+padding:12px 28px;
+
+}
+
+}
+
+
 
