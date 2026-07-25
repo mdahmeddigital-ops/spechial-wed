@@ -5459,3 +5459,246 @@ iterations:1
 });
 
 },8000);
+
+
+
+
+
+/*==================================================
+SCRIPT.JS PART 5.2
+FINAL LOVE TREE MAGIC + HEART LEAVES
+==================================================*/
+
+
+/*==============================
+HEART LEAF FALL FROM TREE
+==============================*/
+
+function treeLeafFall(){
+
+if(typeof loveTree==="undefined") return;
+
+
+const leaf=document.createElement("div");
+
+leaf.innerHTML="💖";
+
+leaf.style.position="absolute";
+
+leaf.style.left=(80+Math.random()*260)+"px";
+
+leaf.style.top=(80+Math.random()*120)+"px";
+
+leaf.style.fontSize=(12+Math.random()*18)+"px";
+
+leaf.style.pointerEvents="none";
+
+leaf.style.zIndex="5";
+
+
+loveTree.appendChild(leaf);
+
+
+
+const fallX=(Math.random()-.5)*180;
+
+
+leaf.animate([
+
+{
+
+transform:"translate(0,0) rotate(0deg)",
+
+opacity:1
+
+},
+
+{
+
+transform:`translate(${fallX}px,250px)
+rotate(220deg)`,
+
+opacity:.8
+
+},
+
+{
+
+transform:`translate(${fallX*2}px,500px)
+rotate(500deg)`,
+
+opacity:0
+
+}
+
+],{
+
+duration:5000+Math.random()*2000,
+
+iterations:1,
+
+easing:"ease-in"
+
+});
+
+
+
+setTimeout(()=>{
+
+leaf.remove();
+
+},7500);
+
+}
+
+setInterval(treeLeafFall,450);
+
+
+
+
+
+/*==============================
+LOVE TREE GLOW PULSE
+==============================*/
+
+function treeGlowPulse(){
+
+const tree=document.querySelector("#loveTree");
+
+if(!tree) return;
+
+
+tree.animate([
+
+{
+
+filter:"drop-shadow(0 0 20px rgba(255,0,170,.3))"
+
+},
+
+{
+
+filter:"drop-shadow(0 0 70px rgba(255,80,220,.8))"
+
+},
+
+{
+
+filter:"drop-shadow(0 0 20px rgba(255,0,170,.3))"
+
+}
+
+],{
+
+duration:3000,
+
+iterations:1
+
+});
+
+}
+
+setInterval(treeGlowPulse,5000);
+
+
+
+
+
+/*==============================
+ROMANTIC TEXT FLOAT
+==============================*/
+
+function romanticText(){
+
+const words=[
+
+"Forever ❤️",
+
+"My Love 💖",
+
+"Always You 🤍",
+
+"Only Us 💕"
+
+];
+
+
+const t=document.createElement("div");
+
+t.innerHTML=
+
+words[Math.floor(Math.random()*words.length)];
+
+
+t.style.position="fixed";
+
+t.style.left=Math.random()*80+"vw";
+
+t.style.bottom="-20px";
+
+t.style.fontSize="16px";
+
+t.style.fontWeight="700";
+
+t.style.color="#ffd9f5";
+
+t.style.pointerEvents="none";
+
+t.style.textShadow="0 0 15px #ff4fcf";
+
+
+document.body.appendChild(t);
+
+
+
+t.animate([
+
+{
+
+transform:"translateY(0)",
+
+opacity:0
+
+},
+
+{
+
+opacity:1,
+
+offset:.2
+
+},
+
+{
+
+transform:"translateY(-100vh)",
+
+opacity:0
+
+}
+
+],{
+
+duration:7000,
+
+iterations:1
+
+});
+
+
+
+setTimeout(()=>{
+
+t.remove();
+
+},7500);
+
+}
+
+
+setInterval(romanticText,3000);
+
+
+
+
+
