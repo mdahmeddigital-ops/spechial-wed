@@ -440,3 +440,227 @@ document.getElementById("loveTree").style.opacity="1";
 document.getElementById("loveTree").style.transform="scaleY(1)";
 
 },300);
+
+
+
+/*==================================================
+SCRIPT.JS PART 3.3
+PAGE CHANGE + TYPING + RESTART
+==================================================*/
+
+const page1=document.getElementById("page1");
+const page2=document.getElementById("page2");
+const page3=document.getElementById("page3");
+
+const touchButton=document.getElementById("touchButton");
+const restart=document.getElementById("restart");
+
+const typing=document.getElementById("typingText");
+
+const message=`I love you my forever person 💖
+
+🫶, my daily happiness 🌞🤍,
+my favorite notification 📱💕,
+my emergency contact 😂❤️ &
+my biggest flex 😌✨.
+
+You're my peace ☁️🛋️,
+my comfort 🥺💞 &
+my loudest cheerleader 📣❤️.
+
+Thank you for always believing in me 🌈🤍.
+
+You're beautiful inside & out 🌸🤍,
+kind ❤️💕 &
+the strongest soul I've ever known 💪🥺.
+
+Never stop smiling 😊🌻
+because your smile is literally
+my favorite place 🌍❤️.
+
+Love you endlessly 💋∞🔵`;
+
+
+
+let index=0;
+let typingStarted=false;
+
+
+
+function typeLetter(){
+
+if(index<message.length){
+
+typing.innerHTML+=message.charAt(index);
+
+index++;
+
+setTimeout(typeLetter,40);
+
+}
+
+}
+
+
+
+touchButton.onclick=function(){
+
+
+
+page1.classList.remove("active");
+
+
+
+setTimeout(()=>{
+
+page2.classList.add("active");
+
+
+
+if(!typingStarted){
+
+typingStarted=true;
+
+typeLetter();
+
+}
+
+},900);
+
+
+
+
+
+setTimeout(()=>{
+
+page2.classList.remove("active");
+
+page3.classList.add("active");
+
+},30000);
+
+};
+
+
+
+restart.onclick=function(){
+
+location.reload();
+
+};
+
+
+
+
+
+/*==============================
+FINAL HEART EXPLOSION
+==============================*/
+
+const finalHearts=document.getElementById("finalHearts");
+
+
+
+function createFinalHeart(){
+
+const h=document.createElement("div");
+
+
+
+h.innerHTML="❤️";
+
+
+
+h.style.position="absolute";
+
+
+
+h.style.left=Math.random()*100+"%";
+
+
+
+h.style.bottom="-40px";
+
+
+
+h.style.fontSize=(20+Math.random()*30)+"px";
+
+
+
+h.style.animation=
+
+"finalFly "+(5+Math.random()*4)+"s linear forwards";
+
+
+
+finalHearts.appendChild(h);
+
+
+
+setTimeout(()=>{
+
+h.remove();
+
+},9000);
+
+}
+
+
+
+setInterval(createFinalHeart,300);
+
+
+
+
+
+/*==============================
+HEART BURST
+==============================*/
+
+touchButton.addEventListener("click",()=>{
+
+for(let i=0;i<40;i++){
+
+let b=document.createElement("div");
+
+b.innerHTML="💖";
+
+b.style.position="fixed";
+
+b.style.left="50%";
+
+b.style.top="50%";
+
+b.style.fontSize=(18+Math.random()*18)+"px";
+
+b.style.pointerEvents="none";
+
+b.style.transition="1.5s";
+
+document.body.appendChild(b);
+
+
+
+setTimeout(()=>{
+
+b.style.left=(window.innerWidth/2+(Math.random()-0.5)*500)+"px";
+
+b.style.top=(window.innerHeight/2+(Math.random()-0.5)*500)+"px";
+
+b.style.opacity="0";
+
+b.style.transform="scale(2) rotate(360deg)";
+
+},20);
+
+
+
+setTimeout(()=>{
+
+b.remove();
+
+},1700);
+
+}
+
+});
