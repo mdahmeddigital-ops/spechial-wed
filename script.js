@@ -247,3 +247,196 @@ for(let i=0;i<80;i++){
 glowParticle();
 
 }
+
+
+
+
+/*==================================================
+SCRIPT.JS PART 3.2
+LOVE TREE + HEART LEAVES
+==================================================*/
+
+const heartLeaves =
+document.getElementById("heartLeaves");
+
+const fallingLeaves =
+document.getElementById("fallingLeaves");
+
+
+
+const treeHearts=[
+"❤️",
+"💖",
+"💕",
+"💗",
+"💘",
+"💝"
+];
+
+
+
+function createLeaf(x,y,size){
+
+const leaf=document.createElement("div");
+
+leaf.className="leaf";
+
+leaf.innerHTML=
+
+treeHearts[
+Math.floor(Math.random()*treeHearts.length)
+];
+
+leaf.style.left=x+"px";
+
+leaf.style.top=y+"px";
+
+leaf.style.fontSize=size+"px";
+
+leaf.style.animationDuration=
+
+(2+Math.random()*3)+"s";
+
+heartLeaves.appendChild(leaf);
+
+}
+
+
+
+/*============================
+TOP HEARTS
+============================*/
+
+for(let i=0;i<70;i++){
+
+createLeaf(
+
+150+Math.random()*120,
+
+40+Math.random()*120,
+
+20+Math.random()*18
+
+);
+
+}
+
+
+
+/*============================
+LEFT HEARTS
+============================*/
+
+for(let i=0;i<45;i++){
+
+createLeaf(
+
+60+Math.random()*110,
+
+120+Math.random()*180,
+
+18+Math.random()*15
+
+);
+
+}
+
+
+
+/*============================
+RIGHT HEARTS
+============================*/
+
+for(let i=0;i<45;i++){
+
+createLeaf(
+
+250+Math.random()*100,
+
+120+Math.random()*180,
+
+18+Math.random()*15
+
+);
+
+}
+
+
+
+/*============================
+CENTER HEARTS
+============================*/
+
+for(let i=0;i<60;i++){
+
+createLeaf(
+
+130+Math.random()*150,
+
+160+Math.random()*220,
+
+18+Math.random()*20
+
+);
+
+}
+
+
+
+/*============================
+FALLING HEART LEAF
+============================*/
+
+function fallingLeaf(){
+
+const leaf=document.createElement("div");
+
+leaf.className="fallLeaf";
+
+leaf.innerHTML=
+
+treeHearts[
+Math.floor(Math.random()*treeHearts.length)
+];
+
+leaf.style.left=
+
+(120+Math.random()*180)+"px";
+
+leaf.style.top="120px";
+
+leaf.style.fontSize=
+
+(18+Math.random()*15)+"px";
+
+leaf.style.animationDuration=
+
+(6+Math.random()*5)+"s";
+
+fallingLeaves.appendChild(leaf);
+
+setTimeout(()=>{
+
+leaf.remove();
+
+},11000);
+
+}
+
+
+
+setInterval(fallingLeaf,700);
+
+
+
+/*============================
+TREE APPEAR
+============================*/
+
+setTimeout(()=>{
+
+document.getElementById("loveTree").style.opacity="1";
+
+document.getElementById("loveTree").style.transform="scaleY(1)";
+
+},300);
