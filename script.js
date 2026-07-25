@@ -1543,3 +1543,233 @@ h.remove();
 
 
 setInterval(endingRain,250);
+
+
+
+
+
+/*==================================================
+SCRIPT.JS PART 3.7
+HEART ORBIT + TREE MAGIC + LOVE DUST
+==================================================*/
+
+
+/*==============================
+LOVE DUST
+==============================*/
+
+function createLoveDust(){
+
+const dust=document.createElement("div");
+
+dust.innerHTML="•";
+
+dust.style.position="fixed";
+
+dust.style.left=Math.random()*100+"vw";
+
+dust.style.top=Math.random()*100+"vh";
+
+dust.style.color="rgba(255,255,255,.45)";
+
+dust.style.fontSize=(2+Math.random()*5)+"px";
+
+dust.style.pointerEvents="none";
+
+dust.style.transition="7s linear";
+
+document.body.appendChild(dust);
+
+setTimeout(()=>{
+
+dust.style.transform=
+`translateY(-120px) translateX(${(Math.random()-.5)*60}px)`;
+
+dust.style.opacity="0";
+
+},30);
+
+setTimeout(()=>{
+
+dust.remove();
+
+},7000);
+
+}
+
+setInterval(createLoveDust,120);
+
+
+
+
+
+/*==============================
+TREE MAGIC GLOW
+==============================*/
+
+function treeMagic(){
+
+const glow=document.createElement("div");
+
+glow.style.position="absolute";
+
+glow.style.width="10px";
+
+glow.style.height="10px";
+
+glow.style.borderRadius="50%";
+
+glow.style.background="#ffd8ff";
+
+glow.style.boxShadow="0 0 20px #ff5fc4";
+
+glow.style.left=(100+Math.random()*220)+"px";
+
+glow.style.top=(60+Math.random()*260)+"px";
+
+glow.style.pointerEvents="none";
+
+glow.style.transition="4s linear";
+
+loveTree.appendChild(glow);
+
+setTimeout(()=>{
+
+glow.style.transform=
+`translateY(-150px) scale(0)`;
+
+glow.style.opacity="0";
+
+},50);
+
+setTimeout(()=>{
+
+glow.remove();
+
+},4200);
+
+}
+
+setInterval(treeMagic,180);
+
+
+
+
+
+/*==============================
+HEART ORBIT
+==============================*/
+
+const orbit=document.createElement("div");
+
+orbit.style.position="fixed";
+
+orbit.style.left="50%";
+
+orbit.style.top="50%";
+
+orbit.style.width="0";
+
+orbit.style.height="0";
+
+orbit.style.pointerEvents="none";
+
+document.body.appendChild(orbit);
+
+
+
+for(let i=0;i<20;i++){
+
+const h=document.createElement("div");
+
+h.innerHTML="💖";
+
+h.style.position="absolute";
+
+h.style.fontSize="18px";
+
+orbit.appendChild(h);
+
+}
+
+
+
+let angle=0;
+
+setInterval(()=>{
+
+angle+=0.02;
+
+const items=orbit.children;
+
+for(let i=0;i<items.length;i++){
+
+const a=angle+(i*18)*Math.PI/180;
+
+const r=90;
+
+items[i].style.left=Math.cos(a)*r+"px";
+
+items[i].style.top=Math.sin(a)*r+"px";
+
+}
+
+},16);
+
+
+
+
+
+/*==============================
+LETTER GLOW
+==============================*/
+
+setInterval(()=>{
+
+typing.animate([
+
+{opacity:.6},
+
+{opacity:1},
+
+{opacity:.6}
+
+],{
+
+duration:2500
+
+});
+
+},2600);
+
+
+
+
+
+/*==============================
+PAGE 3 TITLE EFFECT
+==============================*/
+
+const endTitle=document.querySelector(".ending h1");
+
+if(endTitle){
+
+setInterval(()=>{
+
+endTitle.animate([
+
+{transform:"scale(1)"},
+
+{transform:"scale(1.04)"},
+
+{transform:"scale(1)"}
+
+],{
+
+duration:2200
+
+});
+
+},2500);
+
+}
