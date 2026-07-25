@@ -3810,3 +3810,231 @@ e.remove();
 }
 
 setInterval(endingMagic,450);
+
+
+
+
+
+/*==================================================
+SCRIPT.JS PART 4.6
+HEART SPIRAL + LOVE FIREWORKS
+==================================================*/
+
+
+/*==============================
+HEART SPIRAL
+==============================*/
+
+function heartSpiral(){
+
+const heart=document.createElement("div");
+
+heart.innerHTML="💖";
+
+heart.style.position="fixed";
+
+heart.style.left="50%";
+
+heart.style.top="50%";
+
+heart.style.fontSize=(14+Math.random()*18)+"px";
+
+heart.style.pointerEvents="none";
+
+heart.style.zIndex="999";
+
+document.body.appendChild(heart);
+
+const angle=Math.random()*Math.PI*2;
+
+const distance=250+Math.random()*250;
+
+const x=Math.cos(angle)*distance;
+
+const y=Math.sin(angle)*distance;
+
+heart.animate([
+
+{
+transform:"translate(-50%,-50%) scale(.2) rotate(0deg)",
+opacity:1
+},
+
+{
+transform:`translate(${x}px,${y}px) scale(2) rotate(720deg)`,
+opacity:0
+}
+
+],{
+
+duration:2200+Math.random()*1200,
+iterations:1,
+easing:"ease-out"
+
+});
+
+setTimeout(()=>{
+
+heart.remove();
+
+},3600);
+
+}
+
+setInterval(heartSpiral,900);
+
+
+
+
+
+/*==============================
+LOVE FIREWORK
+==============================*/
+
+function loveFirework(x,y){
+
+for(let i=0;i<18;i++){
+
+const p=document.createElement("div");
+
+p.innerHTML="✨";
+
+p.style.position="fixed";
+
+p.style.left=x+"px";
+
+p.style.top=y+"px";
+
+p.style.fontSize=(8+Math.random()*10)+"px";
+
+p.style.pointerEvents="none";
+
+document.body.appendChild(p);
+
+const angle=(Math.PI*2/18)*i;
+
+const power=100+Math.random()*80;
+
+const tx=Math.cos(angle)*power;
+
+const ty=Math.sin(angle)*power;
+
+p.animate([
+
+{
+
+transform:"translate(0,0) scale(.5)",
+
+opacity:1
+
+},
+
+{
+
+transform:`translate(${tx}px,${ty}px) scale(1.5)`,
+
+opacity:0
+
+}
+
+],{
+
+duration:1500,
+iterations:1
+
+});
+
+setTimeout(()=>{
+
+p.remove();
+
+},1700);
+
+}
+
+}
+
+
+
+
+
+/*==============================
+CLICK EFFECT
+==============================*/
+
+document.addEventListener("click",(e)=>{
+
+loveFirework(e.clientX,e.clientY);
+
+});
+
+
+
+
+
+/*==============================
+FLOATING LOVE
+==============================*/
+
+function floatingLove(){
+
+const text=document.createElement("div");
+
+text.innerHTML="Love 💜";
+
+text.style.position="fixed";
+
+text.style.left=Math.random()*100+"vw";
+
+text.style.bottom="-30px";
+
+text.style.fontWeight="700";
+
+text.style.color="#ffd8ff";
+
+text.style.pointerEvents="none";
+
+document.body.appendChild(text);
+
+text.animate([
+
+{
+
+transform:"translateY(0)",
+
+opacity:0
+
+},
+
+{
+
+opacity:1,
+
+offset:.2
+
+},
+
+{
+
+transform:"translateY(-120vh)",
+
+opacity:0
+
+}
+
+],{
+
+duration:9000,
+iterations:1
+
+});
+
+setTimeout(()=>{
+
+text.remove();
+
+},9500);
+
+}
+
+setInterval(floatingLove,2500);
