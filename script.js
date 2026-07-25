@@ -3591,3 +3591,222 @@ h.remove();
 }
 
 setInterval(randomExplosion,9000);
+
+
+
+
+/*==================================================
+SCRIPT.JS PART 4.5
+BACKGROUND PARTICLES + TREE AMBIENT
+==================================================*/
+
+
+/*==============================
+BACKGROUND PARTICLES
+==============================*/
+
+function createBgParticle(){
+
+const p=document.createElement("div");
+
+p.className="bgParticle";
+
+p.style.left=Math.random()*100+"vw";
+
+p.style.bottom="-20px";
+
+const size=3+Math.random()*8;
+
+p.style.width=size+"px";
+p.style.height=size+"px";
+
+p.style.animationDuration=
+(10+Math.random()*8)+"s";
+
+document.body.appendChild(p);
+
+setTimeout(()=>{
+
+p.remove();
+
+},19000);
+
+}
+
+setInterval(createBgParticle,180);
+
+
+
+
+/*==============================
+TREE AMBIENT
+==============================*/
+
+const ambient=document.createElement("div");
+
+ambient.className="treeAmbient";
+
+if(typeof loveTree!=="undefined"){
+
+loveTree.appendChild(ambient);
+
+}
+
+
+
+
+/*==============================
+RANDOM HEART GLOW
+==============================*/
+
+setInterval(()=>{
+
+const hearts=document.querySelectorAll(".leaf,.crownLeaf");
+
+if(!hearts.length) return;
+
+const randomHeart=
+
+hearts[Math.floor(Math.random()*hearts.length)];
+
+randomHeart.animate([
+
+{
+
+filter:"drop-shadow(0 0 8px #ff4fcf)"
+
+},
+
+{
+
+filter:"drop-shadow(0 0 30px #ffffff)"
+
+},
+
+{
+
+filter:"drop-shadow(0 0 8px #ff4fcf)"
+
+}
+
+],{
+
+duration:1600
+
+});
+
+},700);
+
+
+
+
+/*==============================
+SOFT CAMERA FLOAT
+==============================*/
+
+setInterval(()=>{
+
+const world=document.querySelector(".loveWorld");
+
+if(!world) return;
+
+world.animate([
+
+{
+
+transform:"translateY(0px)"
+
+},
+
+{
+
+transform:"translateY(-6px)"
+
+},
+
+{
+
+transform:"translateY(0px)"
+
+}
+
+],{
+
+duration:6000,
+
+easing:"ease-in-out"
+
+});
+
+},6200);
+
+
+
+
+/*==============================
+ENDING MAGIC
+==============================*/
+
+function endingMagic(){
+
+if(!page3.classList.contains("active")) return;
+
+const e=document.createElement("div");
+
+e.innerHTML="🤍";
+
+e.style.position="fixed";
+
+e.style.left=Math.random()*100+"vw";
+
+e.style.bottom="-20px";
+
+e.style.fontSize=(18+Math.random()*12)+"px";
+
+e.style.pointerEvents="none";
+
+document.body.appendChild(e);
+
+e.animate([
+
+{
+
+transform:"translateY(0)",
+
+opacity:0
+
+},
+
+{
+
+opacity:1,
+
+offset:.15
+
+},
+
+{
+
+transform:"translateY(-120vh) rotate(360deg)",
+
+opacity:0
+
+}
+
+],{
+
+duration:8500,
+
+iterations:1
+
+});
+
+setTimeout(()=>{
+
+e.remove();
+
+},9000);
+
+}
+
+setInterval(endingMagic,450);
