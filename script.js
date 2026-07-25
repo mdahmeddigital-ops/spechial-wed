@@ -6751,3 +6751,188 @@ iterations:1
 },7000);
 
 
+
+
+
+/*==================================================
+FINAL FIX PACK PART 1
+SYSTEM CONNECTION + SAFE START
+==================================================*/
+
+
+/*==============================
+CHECK PAGE SYSTEM
+==============================*/
+
+window.addEventListener("load",()=>{
+
+
+console.log(
+"💜 Romantic Website Loaded Successfully"
+);
+
+
+
+/* PAGE AUTO ACTIVE */
+
+const pages=document.querySelectorAll(".page");
+
+
+if(pages.length>0){
+
+pages.forEach((page,index)=>{
+
+if(index===0){
+
+page.classList.add("active");
+
+}
+
+});
+
+
+}
+
+
+
+});
+
+
+
+
+
+/*==============================
+BUTTON PAGE CHANGE FIX
+==============================*/
+
+
+const touchButton=
+document.querySelector("#touchButton");
+
+
+if(touchButton){
+
+
+touchButton.addEventListener("click",()=>{
+
+
+const page1=
+document.querySelector("#page1");
+
+
+const page2=
+document.querySelector("#page2");
+
+
+if(page1 && page2){
+
+
+page1.classList.remove("active");
+
+
+setTimeout(()=>{
+
+
+page2.classList.add("active");
+
+
+},700);
+
+
+
+}
+
+
+
+});
+
+
+}
+
+
+
+
+
+/*==============================
+TYPING EFFECT FIX
+==============================*/
+
+
+function startTyping(textElement,text){
+
+
+if(!textElement)return;
+
+
+textElement.innerHTML="";
+
+
+let i=0;
+
+
+const timer=setInterval(()=>{
+
+
+textElement.innerHTML += text.charAt(i);
+
+
+i++;
+
+
+if(i>=text.length){
+
+
+clearInterval(timer);
+
+
+}
+
+
+},45);
+
+
+
+}
+
+
+
+
+const message=
+
+`i love you my forever person 💖
+
+🫶, my daily happiness 🌞🤍, my favorite notification 📱💕, my emergency contact 😂❤️ & my biggest flex 😌✨.
+
+You're my peace ☁️🛋️, my comfort 🥺💞 & my loudest cheerleader 📣❤️.
+
+Thank you for always believing in me 🌈🤍.
+
+You're beautiful inside & out 🌸🤍, kind ❤️💕 & the strongest soul I've ever known 💪🥺.
+
+Never stop smiling 😊🌻 because your smile is literally my favorite place 🌍❤️.
+
+Love you endlessly 💋∞`;
+
+
+
+const typingBox=
+document.querySelector("#typingText");
+
+
+
+if(typingBox){
+
+
+setTimeout(()=>{
+
+
+startTyping(
+typingBox,
+message
+);
+
+
+},1500);
+
+
+}
